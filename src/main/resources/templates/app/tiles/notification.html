@@ -1,0 +1,35 @@
+<!DOCTYPE HTML>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head><title></title></head>
+
+<li th:fragment="default-icon" class="breadcrumb-item" th:if="${notification.countErrors()>0}">
+    <a href="#" class="text-danger" onclick="javascript:$('#notification-alerts').show()">
+        <i class="far fa-bell animate__animated animate__swing"></i>
+        <span class="badge badge-danger" style="padding: 0.10em;" th:text="${notification.countErrors()}"></span>
+    </a>
+</li>
+
+<div th:fragment="default" th:if="${notification.countAll()>0}" id="notification-alerts" class="alert alert-warning alert-dismissible fade show div-notification animate__animated animate__slideInUp">
+    <ul class="list-inline">
+        <li th:unless="${#lists.isEmpty(notification.info)}" th:each="msgi : ${notification.info}" class="dropdown-item">
+            <span class="fa fa-info-circle pr-1 text-info"></span><span th:utext="${msgi}" ></span>
+        </li>
+        <li th:unless="${#lists.isEmpty(notification.warning)}" th:each="msgw : ${notification.warning}" class="dropdown-item">
+            <span class="fa fa-info-circle pr-1 text-warning"></span><span th:utext="${msgw}" ></span>
+        </li>
+        <li th:unless="${#lists.isEmpty(notification.error)}" th:each="msge : ${notification.error}" class="dropdown-item">
+            <span class="fa fa-info-circle pr-1 text-danger"></span><span th:utext="${msge}" ></span>
+        </li>
+    </ul>
+    <button type="button" class="close"  aria-label="Close" onclick="javascript:$('#notification-alerts').fadeOut()">
+        <span aria-hidden="true">&times;</span>
+    </button>
+    <th:block th:if="${#lists.isEmpty(notification.error) and #lists.isEmpty(notification.warning)}">
+        <script>
+            setTimeout("$('#notification-alerts').fadeOut()",2500);
+        </script>
+    </th:block>
+</div>
+
+<body></body>
+</html>

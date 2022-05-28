@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="it" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="app/tiles/head.html::default">
+    <title></title>
+</head>
+<body>
+<div class="fixed-top shadow">
+    <div th:replace="app/tiles/menu.html::${@environment.getProperty('menu.type')}"></div>
+    <div th:replace="app/tiles/breadcrumb.html::default"></div>
+    <div th:replace="app/tiles/detailelements.html::menucrudaction(${session.detailresponse_htmleditor})"></div>
+</div>
+<div id="fixed-top-height"></div>
+<div class="container-fluid">
+    <div class="row">
+
+        <div class="col-2 p-0">
+            <ul th:replace="app/tiles/detailelements.html::menucontext(${session.detailresponse_htmleditor})"></ul>
+        </div>
+
+        <div class="col">
+            <div class="d-flex justify-content-center">
+                <div class="card shadow mb-4"
+                     th:style="${session.detailresponse_htmleditor.getMinWidth()!=null?'min-width:'+session.detailresponse_htmleditor.getMinWidth()+'px':''}">
+
+                    <div th:replace="app/tiles/detailelements.html::header(${session.detailresponse_htmleditor})"></div>
+
+                    <div class="card-body">
+
+                        <div class="div-detail-body table-responsive">
+
+                            <form id="model_form" method="POST" th:action="@{/app/htmleditor(s=${s_form_detail})}"
+                                  th:object="${session.detailresponse_htmleditor.getRecord()}">
+                                <input type="hidden" id="model_action" name="model_action" value=""/>
+
+                                <textarea rows="10" class="form-control" id="htmlarea" name="htmlarea"
+                                          th:text="*{htmlarea}"
+                                          required="required"></textarea>
+
+                            </form>
+
+                        </div>
+                    </div>
+                    <div class="card-footer">
+                        <div th:replace="app/tiles/detailelements.html::footer(${session.detailresponse_htmleditor})"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <script type="text/javascript" th:src="@{/webjars/tinymce/5.8.2/tinymce.min.js}"></script>
+        <script th:inline="javascript">
+            /*<![CDATA[*/
+            var urlimage = /*[[${urlimage}]]*/ 'urlimage';
+            /*]]>*/
+            tinyMCE.init({
+                selector: "textarea#htmlarea",
+                plugins: "searchreplace advlist autolink link image lists charmap preview hr anchor pagebreak spellchecker searchreplace wordcount visualblocks visualchars code insertdatetime media nonbreaking table contextmenu directionality emoticons template paste textcolor",
+                width: 900,
+                height: 500,
+                menu: {
+                    edit: {title: 'Edit', items: 'undo redo | cut copy paste pastetext | selectall searchreplace'},
+                    insert: {title: 'Insert', items: 'link media | template hr'},
+                    view: {title: 'View', items: 'visualaid | code'},
+                    format: {
+                        title: 'Format',
+                        items: 'bold italic underline strikethrough superscript subscript | formats | removeformat'
+                    },
+                    table: {title: 'Table', items: 'inserttable tableprops deletetable | cell row column'},
+                },
+                toolbar: "insertfile undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image media | forecolor backcolor emoticons code",
+                relative_urls: false,
+                remove_script_host: false,
+                convert_urls: false,
+                verify_html: false,
+                forced_root_block: false,
+                image_list: urlimage
+            });
+        </script>
+        <div class="col-2 p-0">
+
+        </div>
+
+    </div>
+</div>
+
+<div th:replace="app/tiles/footer.html::default"></div>
+<div th:replace="app/tiles/modalelements.html::default"></div>
+<div th:replace="app/tiles/notification.html::default"></div>
+
+</body>
+</html>

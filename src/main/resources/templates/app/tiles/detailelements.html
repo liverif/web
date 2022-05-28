@@ -1,0 +1,93 @@
+<!DOCTYPE HTML>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+
+<div th:fragment="header(detailresponse)"
+     class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+    <ul class="list-inline mb-0">
+        <li class="list-inline-item" th:if="${detailresponse.htmlMenuAction().length()>0}">
+            <div class="dropdown no-arrow">
+                <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown"
+                   aria-haspopup="true" aria-expanded="false">
+                    <i class="fas fa-ellipsis-v fa-sm fa-fw"></i>
+                </a>
+                <div class="dropdown-menu dropdown-menu-right shadow" aria-labelledby="dropdownMenuLink"
+                     th:utext="${detailresponse.htmlMenuAction()}">
+                </div>
+            </div>
+        </li>
+        <li class="list-inline-item">
+            <h6 class="m-0 font-weight-bold text-primary" th:utext="${detailresponse.getAttribute().getTitleDetail()}">
+                TITLE</h6>
+        </li>
+    </ul>
+    <ul class="list-inline mb-0 ml-3 float-right">
+        <li class="list-inline-item" th:if="${detailresponse.getViewTooltipInfo()}">
+            <div class="dropright no-arrow">
+                <a class="dropdown-toggle" href="#" role="button" id="dropdownInfoLink" data-toggle="dropdown"
+                   aria-haspopup="true" aria-expanded="false">
+                    <i class="fas fa-info-circle text-primary"></i>
+                </a>
+                <div class="dropdown-menu dropdown-menu-right shadow" aria-labelledby="dropdownInfoLink">
+                    <ul class="list-inline pl-3">
+                        <li>
+                            <span class="small text-danger bold" th:text="#{detail.label.tooltip.create}">CREATE</span>
+                            <span class="small text-danger float-right mr-2 text-dark"
+                                  th:text="${detailresponse.getRecord().getVer()!=null?'Ver: '+detailresponse.getRecord().getVer():'-'}"></span>
+                        </li>
+                        <li><span class="badge badge-info"
+                                  th:text="*{{detailresponse.getRecord().getCreateBy()}}"></span></li>
+                        <li><span class="small bold" th:text="*{{detailresponse.getRecord().getCreateDate()}}"></span>
+                        </li>
+                        <li>
+                            <hr class="p-0 m-0 mt-1 mb-1">
+                        </li>
+                        <li><span class="small text-danger bold" th:text="#{detail.label.tooltip.modify}">MODIFY</span>
+                        </li>
+                        <li><span class="badge badge-info"
+                                  th:text="*{{detailresponse.getRecord().getModifyBy()}}"></span></li>
+                        <li><span class="small bold" th:text="*{{detailresponse.getRecord().getModifyDate()}}"></span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </li>
+    </ul>
+</div>
+
+<div th:fragment="footer(detailresponse)">
+    <ul class="list-inline mb-0">
+        <li class="list-inline-item" th:if="${detailresponse.htmlMenuAction().length()>0}">
+            <div class="dropdown no-arrow">
+                <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown"
+                   aria-haspopup="true" aria-expanded="false">
+                    <i class="fas fa-ellipsis-v fa-sm fa-fw"></i>
+                </a>
+                <div class="dropdown-menu dropdown-menu-right shadow" aria-labelledby="dropdownMenuLink"
+                     th:utext="${detailresponse.htmlMenuAction()}">
+                </div>
+            </div>
+        </li>
+    </ul>
+</div>
+
+<div th:fragment="menucrudaction(detailresponse)" th:if="${detailresponse.getMenuCrudAction().size()>0}" class="row bg-light">
+    <div class="col-2">
+
+    </div>
+    <div class="col">
+        <ul class="list-inline mb-0 animate__animated animate__fadeIn">
+            <li th:each="item: ${detailresponse.getMenuCrudAction()}" class="list-inline-item pb-0" th:utext="${item}"></li>
+        </ul>
+    </div>
+    <div class="col-2">
+
+    </div>
+
+</div>
+
+<ul th:fragment="menucontext(detailresponse)" th:if="${detailresponse.getMenuContext().size()>0}" class="list-group">
+    <li th:each="item: ${detailresponse.getMenuContext()}" class="list-group-item" th:utext="${item}"></li>
+</ul>
+
+<body></body>
+</html>

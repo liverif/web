@@ -1,0 +1,66 @@
+<!DOCTYPE HTML>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+
+<nav th:fragment="horizontal" class="navbar navbar-expand-lg"
+     th:style="${@environment.getProperty('application.horizontal.menu.style')}">
+    <div class="list-inline-item" th:style="${@environment.getProperty('application.home.style')}" th:utext="${@environment.getProperty('application.home.title')}"></div>
+    <button th:style="${@environment.getProperty('application.horizontal.menu.style')}" class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="fas fa-bars"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavDropdown">
+        <ul class="navbar-nav">
+            <li th:each="items : ${menu}" class="nav-item dropdown">
+                <a th:style="${@environment.getProperty('application.horizontal.menu.style')}" th:utext="${items.key}"
+                   class="nav-link dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true"
+                   aria-expanded="false">
+                    MENU_TITLE
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                    <a th:each="item : ${items.value}" class="dropdown-item loading"
+                       th:href="@{/app/(s=${item.link})}" th:utext="${item.label}">ITEM</a>
+                </div>
+            </li>
+        </ul>
+    </div>
+    <script>
+        $( document ).ready(function() {
+            $("#show_menu_vertical").hide();
+        });
+    </script>
+</nav>
+
+<div th:fragment="vertical" class="slide-menu bg-light animate__animated shadow" style="border-right: solid #DDD 1px;">
+    <ul class="list-unstyled">
+        <li class="text-right">
+            <button id="hide_menu_vertical" class="btn">
+                <i class="far fa-caret-square-left text-info"></i>
+            </button>
+        </li>
+        <li class="text-center" th:style="${@environment.getProperty('application.home.style')}" th:utext="${@environment.getProperty('application.home.title')}"></li>
+        <li id="accordionMenu">
+            <div th:each="items, stat : ${menu}" class="accordion" th:id="${'accordionMenu'+stat.index}">
+                <div class="menu-root-item" th:id="${'heading'+stat.index}">
+                    <h2 class="mb-0">
+                        <a class="btn btn-link btn-block text-left" type="button" data-toggle="collapse"
+                           th:data-target="${'#collapseMenu'+stat.index}" aria-expanded="true"
+                           th:aria-controls="${'#collapseMenu'+stat.index}"
+                           th:utext="${items.key}">
+                            MENU
+                        </a>
+                    </h2>
+                </div>
+                <div th:id="${'collapseMenu'+stat.index}" class="collapse" th:aria-labelledby="${'heading'+stat.index}"
+                     data-parent="#accordionMenu">
+                    <div class="menu-item p-2 pl-3">
+                        <ul class="list-unstyled">
+                            <li th:each="item : ${items.value}" class="border-bottom p-1">
+                                <a class="loading"
+                                   th:href="@{/app/(s=${item.link})}" th:utext="${item.label}">ITEM</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </li>
+    </ul>
+</div>

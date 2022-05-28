@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<div th:fragment="default" id="navbar_top">
+    <div class="container-fluid">
+        <div class="row bg-light breadcrumb-row" >
+            <div class="col-1">
+                <button class="btn btn-light mt-1" id="show_menu_vertical">
+                    <i id="show_menu_vertical" class="fab fa-elementor text-info"></i>
+                </button>
+            </div>
+            <div class="col">
+                <nav aria-label="breadcrumb">
+                    <ol class="breadcrumb bg-light mb-0">
+                        <li class="breadcrumb-item"><a class="loading" th:href="@{/app/(s=${breadcrumb_home})}" th:utext="#{breadcrumb.home}">HOME</a></li>
+                        <li class="breadcrumb-item" th:each="stack : ${session.stackweb}" >
+                            <a class="loading" th:href="@{${stack.getLinkSkip()}}" th:utext="${stack.getLabel()}"></a>
+                        </li>
+                        <li class="breadcrumb-item"><a class="loading" th:href="@{/app/(s=${breadcrumb_refresh})}" th:utext="#{breadcrumb.refresh}">REFRESH</a></li>
+                        <li class="breadcrumb-item"><a class="loading" th:href="@{/app/(s=${breadcrumb_back})}" th:utext="#{breadcrumb.back}">BACK</a></li>
+                        <li th:replace="app/tiles/notification.html::default-icon"></li>
+                    </ol>
+                </nav>
+            </div>
+            <div class="col-2 breadcrumb-optional">
+                <ul class="list-inline float-right mt-1 mb-0">
+                    <li class="list-inline-item">
+                        <div th:replace="app/tiles/language.html::default"></div>
+                    </li>
+                    <li class="list-inline-item">
+                        <div th:replace="app/tiles/screenmode.html::default"></div>
+                    </li>
+                    <li class="list-inline-item">
+                        <div th:replace="app/tiles/logininfo.html::default"></div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div th:fragment="error" id="navbar_top">
+    <nav aria-label="breadcrumb" class="bg-light">
+        <div class="container">
+            <ol class="breadcrumb bg-light">
+                <li class="breadcrumb-item"><a class="loading" th:href="@{/app/(s=${breadcrumb_home})}" th:utext="#{breadcrumb.home}">HOME</a></li>
+            </ol>
+        </div>
+    </nav>
+</div>
+
+<body></body>
+
+</html>

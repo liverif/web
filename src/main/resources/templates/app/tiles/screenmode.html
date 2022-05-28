@@ -1,0 +1,28 @@
+<!DOCTYPE HTML>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+
+
+<div th:fragment="default" class="dropdown dropleft">
+    <a class="btn btn-default dropdown-toggle" href="#" role="button" id="dropdownMenuScreenMode"
+       data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" >
+        <th:block th:if="${session.get('screenmode')=='mobile'}" th:utext="#{label.screenmode.mobile}"></th:block>
+        <th:block th:if="${session.get('screenmode')=='pc'}" th:utext="#{label.screenmode.pc}"></th:block>
+    </a>
+    <div class="dropdown-menu" aria-labelledby="dropdownMenuScreenMode">
+        <a class="dropdown-item" th:href="@{/app/(sm=mobile)}">
+            <ul class="list-inline">
+                <li class="list-inline-item" th:utext="#{button.screenmode.mobile}">
+                </li>
+            </ul>
+        </a>
+        <a class="dropdown-item" th:href="@{/app/(sm=pc)}">
+            <ul class="list-inline">
+                <li class="list-inline-item" th:utext="#{button.screenmode.pc}">
+                </li>
+            </ul>
+        </a>
+    </div>
+</div>
+
+<body></body>
+</html>

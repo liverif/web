@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="it" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="app/tiles/head.html::default">
+    <title></title>
+</head>
+<body>
+<div class="fixed-top shadow">
+    <div th:replace="app/tiles/menu.html::${@environment.getProperty('menu.type')}"></div>
+    <div th:replace="app/tiles/breadcrumb.html::default"></div>
+</div>
+<div id="fixed-top-height"></div>
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col">
+
+        </div>
+    </div>
+</div>
+<div th:replace="app/tiles/footer.html::default"></div>
+<div th:replace="app/tiles/modalelements.html::default"></div>
+
+</body>
+</html>

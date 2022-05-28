@@ -1,0 +1,241 @@
+.dropdown.no-arrow .dropdown-toggle::after {
+    display: none;
+}
+
+.form-control {
+    font-size: 14px !important;
+    width: auto;
+}
+
+.control-label {
+    font-weight: bold;
+    margin-top: 10px;
+    margin-bottom: 0px;
+}
+
+.label-required{
+    color: #F33;
+}
+
+.label-readonly{
+    opacity: 0.5;
+}
+
+.form-element-row{
+    margin-right: 20px;
+    margin-bottom: 5px;
+}
+
+.form-element-row-nomargin{
+    margin-right: 3px;
+    margin-bottom: 5px;
+}
+
+.form-element-row-up{
+    margin-top: 15px;
+    margin-bottom: 0px;
+}
+
+.form-element-row-down{
+}
+
+.div-detail-body{
+    border: none;
+}
+
+.div-list-body{
+    min-height: 300px;
+}
+
+.button-crud{
+    background-color: transparent !important;
+    border: none !important;
+}
+
+.div-compact{
+    margin: auto;
+    display: inline-block;
+}
+
+.wconfirm{}
+
+.loading{}
+
+.header-color{
+    background: rgb(0,99,119);
+    background: linear-gradient(90deg, rgba(0,99,119,1) 0%, rgba(189,244,255,1) 100%);
+}
+
+.title-application{
+    text-shadow: 5px 5px 10px #ff0000;
+    color:white;
+    font-size:38px;
+    padding-top: 20px;
+    padding-left: 20px;
+}
+
+.div-htmlarea-preview{
+    border: solid 1px #DDD;
+    border-radius: 5px;
+    max-height: 500px;
+    min-height: 50px;
+    width: 100%;
+    display: inline-block;
+    overflow: auto;
+    background-color: white;
+    padding: 3px;
+}
+
+.div-html-element{
+    border: solid 1px #F66;
+    border-radius: 5px;
+    max-height: 600px;
+    min-height: 50px;
+    width: 400px;
+    display: inline-block;
+    overflow: auto;
+    background-color: bisque;
+    padding: 3px;
+}
+
+.div-textarea-element{
+
+}
+
+.form-control-select2{
+    height: calc(1.5em + .75rem + 2px) !important;
+    border: 1px solid #ced4da !important;
+}
+
+.form-control-multiselect2{
+    border: 1px solid #ced4da !important;
+    max-width: 500px;
+}
+
+.tooltip {
+    position: relative;
+    display: inline-block;
+    border-bottom: 1px dotted black;
+    opacity: 1;
+}
+
+.tooltip .tooltiptext {
+    visibility: hidden;
+    position: absolute;
+    width: 170px;
+    background-color: #EEE;
+    color: #333;
+    padding-left: 12px;
+    padding-bottom: 5px;
+    border-radius: 6px;
+    z-index: 1;
+    opacity: 0;
+    transition: opacity 0.3s;
+    font-size: 11px;
+    box-shadow: 5px 5px 3px #dedede;
+}
+
+.tooltip-right {
+    top: -5px;
+    left: 150%;
+}
+
+.tooltip .tooltiptext::after {
+    content: "";
+    position: absolute;
+    top: 10px;
+    right: 100%;
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: 5px 7px 5px 0;
+    border-color: transparent #555 transparent transparent;
+
+}
+
+.tooltip:hover .tooltiptext {
+    visibility: visible;
+    opacity: 1;
+}
+
+.table td, .table th {
+    padding: 0.25rem !important;
+}
+
+.list-textarea{
+
+}
+
+.pre-list{
+    max-width: 400px;
+    max-height: 75px;
+    overflow: auto;
+    margin-bottom: 0px !important;
+}
+
+.div-notification{
+    position:fixed;
+    bottom:0;left:0;
+    width:100%;z-index: 999;
+    border-radius: 0px;
+    margin-bottom: -10px;
+}
+
+ .boxpreview{
+     position:absolute;
+     border: 1px solid #DDDDDD;
+     background-color:#FFF;
+     padding:5px;
+     font-size: 13px;
+     max-width: 600px;
+     -webkit-box-shadow: 2px 2px 5px 0px rgba(0,0,0,0.2);
+     -moz-box-shadow: 2px 2px 5px 0px rgba(0,0,0,0.2);
+     box-shadow: 2px 2px 5px 0px rgba(0,0,0,0.2);
+     display: none;
+     z-index: 999;
+ }
+
+ .infotooltip{
+     cursor: pointer;
+ }
+
+.slide-menu {
+    z-index: 9999;
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    overflow: hidden;
+    width: 200px;
+    height: 100%;
+    display: none;
+}
+
+.menu-root-item{
+    background-color: #EEE;
+    border-bottom: solid #DDD 1px;
+}
+
+.menu-item{
+    border-bottom: solid #DDD 1px;
+}
+
+.breadcrumb-row{
+    border: solid #DDD 1px;
+}
+
+.breadcrumb-optional{
+    background: #e6e9f0;
+    border-left: solid 1px #DDD;
+}
+
+.action-row{
+    border: solid #DDD 1px;
+}
+
+.list-row-selected{
+    background-color: #99D9FF !important;
+}
+
+.row-success {
+    background-color: #C7FFC5 !important;
+}

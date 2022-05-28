@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="it" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="app/tiles/head.html::default">
+    <title></title>
+</head>
+<body>
+<div th:replace="app/tiles/header.html::default"></div>
+<div th:replace="app/tiles/breadcrumb.html::error"></div>
+
+<div class="container">
+    <div class="row">
+        <div class="col">
+            <div class="jumbotron">
+
+                <div class="text-danger"><i class="fas fa-exclamation-triangle fa-2x"></i></div>
+                <h3 class="text-danger" th:utext="#{error.generic}">TITLE ERROR</h3>
+
+                <h4 th:utext="${error_description}"></h4>
+
+                <th:block th:utext="${'<!-- HTTP STATUS: '+error_status+' -->'}"></th:block>
+
+                <th:block th:utext="${'<!-- '+error_exception+' -->'}"></th:block>
+            </div>
+        </div>
+    </div>
+</div>
+<div th:replace="app/tiles/footer.html::default"></div>
+<div th:replace="app/tiles/modalelements.html::default"></div>
+</body>
+</html>

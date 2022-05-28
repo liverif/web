@@ -1,0 +1,35 @@
+<!DOCTYPE HTML>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+
+<div th:fragment="default" class="dropdown dropleft">
+    <a class="btn btn-default dropdown-toggle" href="#" role="button" id="dropdownMenuLanguage"
+       data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        <img th:src="@{/img/}+${select_language+'_language.png'}" style="height: 20px">
+    </a>
+    <div class="dropdown-menu" aria-labelledby="dropdownMenuLanguage">
+        <a class="dropdown-item" th:href="@{/app/(lang=it)}">
+            <ul class="list-inline">
+                <li class="list-inline-item">
+                    <img th:src="@{/img/it_language.png}" style="height: 20px">
+                </li>
+                <li class="list-inline-item">
+                    IT
+                </li>
+            </ul>
+        </a>
+        <a class="dropdown-item" th:href="@{/app/(lang=en)}">
+            <ul class="list-inline">
+                <li class="list-inline-item">
+                    <img th:src="@{/img/en_language.png}" style="height: 20px">
+                </li>
+                <li class="list-inline-item">
+                    EN
+                </li>
+            </ul>
+        </a>
+    </div>
+</div>
+
+
+<body></body>
+</html>

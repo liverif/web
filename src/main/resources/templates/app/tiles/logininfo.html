@@ -1,0 +1,37 @@
+<!DOCTYPE HTML>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+
+
+<div th:fragment="default" class="dropdown dropleft">
+    <a class="btn btn-default dropdown-toggle" href="#" role="button" id="dropdownMenuLoginInfo"
+       data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" >
+        <th:block th:utext="#{label.logininfo}"></th:block>
+    </a>
+    <div class="dropdown-menu p-2" aria-labelledby="dropdownMenuLoginInfo">
+        <ul class="list-unstyled">
+            <li>
+                <label class="small">USER</label>
+                <span th:text="${user_auth.getUsername()}"></span>
+            </li>
+            <li>
+                <span th:text="${user_auth.getRolesName()}"></span>
+            </li>
+        </ul>
+        <hr class="m-0 mt-1 mb-1"/>
+        <ul class="list-inline">
+            <li class="list-inline-item">
+                <a class="btn btn-sm btn-outline-success" th:href="@{/app/(s=${link_user_auth})}">
+                    <i class="fas fa-user-edit"></i>
+                </a>
+            </li>
+            <li class="list-inline-item">
+                <form th:action="@{/logout}" method="POST">
+                    <button class="btn btn-sm btn btn-outline-danger m-1" type="submit" th:utext="#{button.logininfo.logout}">LOGOUT</button>
+                </form>
+            </li>
+        </ul>
+    </div>
+</div>
+
+<body></body>
+</html>
