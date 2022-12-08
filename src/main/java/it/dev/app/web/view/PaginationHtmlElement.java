@@ -1,15 +1,12 @@
 package it.dev.app.web.view;
 
 import java.util.ArrayList;
-
-import org.springframework.data.util.Pair;
-
 import it.liverif.core.web.beans.StackWebBean;
 import it.liverif.core.web.controller.ABaseController;
 import it.liverif.core.web.controller.StackWebEngine;
 import it.liverif.core.web.view.detail.AView;
 import it.liverif.core.web.view.list.AListResponse;
-
+import org.springframework.data.util.Pair;
 import org.springframework.stereotype.Component;
 import org.springframework.context.annotation.Scope;
 import org.springframework.beans.factory.config.ConfigurableBeanFactory;

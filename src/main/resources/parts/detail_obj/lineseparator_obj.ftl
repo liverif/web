@@ -3,6 +3,6 @@
         <i class="fas fa-layer-group"></i>
     </li>
     <li class="list-inline-item">
-        ${lineseparator}
+        ${label}
     </li>
 </ul>

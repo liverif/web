@@ -11,7 +11,6 @@ import it.liverif.core.web.controller.AController;
 import it.liverif.core.web.view.AAttribute;
 import it.liverif.core.web.view.detail.ADetailResponse;
 import it.liverif.core.web.view.detail.AView;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.MessageSource;
 import org.springframework.context.i18n.LocaleContextHolder;
@@ -68,7 +67,7 @@ public class FieldHtmlElement extends AView {
     @Autowired
     private FreemarkerEngine freemarkerEngine;
 
-    public String text(ADetailResponse detailresponse, String field,Object value,boolean newRow) throws Exception {
+    public String text(ADetailResponse detailresponse, String field, Object value, boolean newRow) throws Exception {
         if(value==null) value="";
         String valueEscape = HtmlUtils.htmlEscape(value.toString(), StandardCharsets.UTF_8.name());
         return htmlObj(TEMPLATE_TEXT,detailresponse, field, valueEscape, newRow, null);
@@ -98,9 +97,7 @@ public class FieldHtmlElement extends AView {
     }
 
     public String lineseparator(ADetailResponse detailresponse, String field) throws Exception {
-        HashMap<String, Object> params = new HashMap<>();
-        params.put("lineseparator",  messageSource.getMessage("label."+detailresponse.tableName()+"."+field.toLowerCase()+".lineseparator", null, LocaleContextHolder.getLocale()));
-        return freemarkerEngine.create("detail_obj/"+TEMPLATE_LINESEPARATOR, params);
+        return htmlObj(TEMPLATE_LINESEPARATOR,detailresponse, field, null, true, null);
     }
 
     public String select(ADetailResponse detailresponse, String field,boolean newRow) throws Exception {

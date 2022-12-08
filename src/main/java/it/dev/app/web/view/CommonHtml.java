@@ -1,13 +1,11 @@
 package it.dev.app.web.view;
 
+import it.liverif.core.web.beans.SelectItem;
 import org.springframework.util.StringUtils;
 import org.springframework.beans.factory.config.ConfigurableBeanFactory;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 import org.springframework.web.util.HtmlUtils;
-
-import it.liverif.core.web.beans.SelectItem;
-
 import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 

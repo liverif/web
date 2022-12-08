@@ -1,0 +1,4 @@
+.app-login-title::before {
+    content: '<i style="transform: rotate(-90deg);" class="fab fa-red-river"></i> Liverif';
+
+}

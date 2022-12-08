@@ -1,16 +1,12 @@
 package it.dev.app.web.view;
 
-import org.springframework.data.util.Pair;
-import org.springframework.ui.ModelMap;
-
 import it.liverif.core.web.beans.StackWebBean;
 import it.liverif.core.web.controller.ABaseController;
 import it.liverif.core.web.controller.AController;
 import it.liverif.core.web.view.detail.AView;
-
+import org.springframework.data.util.Pair;
+import org.springframework.ui.ModelMap;
 import org.springframework.stereotype.Component;
-import org.springframework.context.annotation.Scope;
-import org.springframework.beans.factory.config.ConfigurableBeanFactory;
 
 @Component
 public class ButtonHtmlElement extends AView {
